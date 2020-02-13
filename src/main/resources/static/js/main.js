@@ -1,6 +1,11 @@
+Vue.component('group-row', {
+  props: ['group'],
+  template: '<div><i>({{group.id}})</i>{{group.text}}</div>'
+})
+
 Vue.component('groups-list', {
   props: ['groups'],
-  template: '<div><div v-for="group in groups">{{ group.text }}</div></div>'
+  template: '<div><group-row v-for="group in groups" :group="group"/></div>'
 })
 
 var app = new Vue({
