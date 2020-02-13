@@ -1,10 +1,7 @@
 package com.gmail.genadyms.timesheet.controller;
 
 import com.gmail.genadyms.timesheet.exceptions.NotFoundException;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +11,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("group")
 public class GroupController {
+
     private static List<Map<String, String>> groups = new ArrayList<Map<String, String>>() {{
         add(new HashMap<String, String>() {{
             put("id", "1");
@@ -37,14 +35,23 @@ public class GroupController {
         }});
     }};
 
+    private static int counter = groups.size();
+
     @GetMapping
     public List<Map<String, String>> index() {
-        return groups;
+        return groups; 
     }
 
     @GetMapping("{id}")
     public Map<String, String> getGroup(@PathVariable String id) {
         return groups.stream().
                 filter(group -> group.get("id").equals(id)).findFirst().orElseThrow(NotFoundException::new);
+    }
+
+    @PostMapping
+    public Map<String, String> create(@RequestBody Map<String, String> group) {
+        group.put("id", String.valueOf(counter++));
+        groups.add(group);
+        return group;
     }
 }
