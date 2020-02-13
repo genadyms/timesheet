@@ -44,6 +44,10 @@ public class GroupController {
 
     @GetMapping("{id}")
     public Map<String, String> getGroup(@PathVariable String id) {
+        return getGroupById(id);
+    }
+
+    private Map<String, String> getGroupById(@PathVariable String id) {
         return groups.stream().
                 filter(group -> group.get("id").equals(id)).findFirst().orElseThrow(NotFoundException::new);
     }
@@ -53,5 +57,13 @@ public class GroupController {
         group.put("id", String.valueOf(counter++));
         groups.add(group);
         return group;
+    }
+
+    @PutMapping("{id}")
+    public Map<String, String> update(@PathVariable String id, @RequestBody Map<String, String> group) {
+        Map<String, String> groupById = getGroupById(id);
+        groupById.putAll(group);
+        groupById.put("id", id);
+        return groupById;
     }
 }
