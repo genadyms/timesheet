@@ -66,4 +66,11 @@ public class GroupController {
         groupById.put("id", id);
         return groupById;
     }
+
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable String id) {
+        Map<String, String> groupById = getGroupById(id);
+        groups.remove(groupById);
+    }
 }
