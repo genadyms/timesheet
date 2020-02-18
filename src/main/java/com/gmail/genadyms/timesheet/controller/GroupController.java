@@ -54,7 +54,7 @@ public class GroupController {
 
     @PostMapping
     public Map<String, String> create(@RequestBody Map<String, String> group) {
-        group.put("id", String.valueOf(counter++));
+        group.put("id", String.valueOf(++counter));
         groups.add(group);
         return group;
     }
