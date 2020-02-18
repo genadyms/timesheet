@@ -56,15 +56,23 @@ Vue.component('group-form', {
 });
 
 Vue.component('group-row', {
-  props: ['group', 'editGroup'],
+  props: ['group', 'editGroup', 'groups'],
   template: '<div><i>({{group.id}})</i>{{group.name}}'+
             '<span style="position: absolute; right: 0">'+
                 '<input type="button" value="Edit" @click="edit" />'+
+                '<input type="button" value="X" @click="remove" />'+
             '</span>'+
             '</div>',
   methods: {
     edit: function() {
       this.editGroup(this.group);
+    },
+    remove: function() {
+      groupApi.remove({id: this.group.id}).then(result => {
+        if (result.ok) {
+          this.groups.splice(this.groups.indexOf(this.group),1);
+        }
+      });
     }
   }
 });
@@ -78,7 +86,8 @@ Vue.component('groups-list', {
   },
   template: '<div style="position: relative; width: 300px;">'+
                 '<group-form :groups="groups" :groupAttr="group" />' +
-                '<group-row v-for="group in groups" :key="group.id" :group="group" :editGroup="editGroup" />'+
+                '<group-row v-for="group in groups" :key="group.id"'+
+                ' :group="group" :groups="groups" :editGroup="editGroup" />'+
             '</div>',
   created: function() {
     groupApi.get().then(result =>
