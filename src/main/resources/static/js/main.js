@@ -35,10 +35,7 @@ Vue.component('group-form', {
         groupApi.update({id: this.id}, group).then( res =>
           res.json().then( data => {
             var index = getIndex(this.groups, data.id);
-            console.log(index);
-            console.log(this.groups);
             this.groups.splice(index, 1, data);
-            console.log(this.groups);
             this.name = '';
             this.id ='';
           })
