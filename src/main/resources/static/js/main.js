@@ -58,7 +58,7 @@ Vue.component('group-form', {
 Vue.component('group-row', {
   props: ['group', 'editGroup'],
   template: '<div><i>({{group.id}})</i>{{group.name}}'+
-            '<span>'+
+            '<span style="position: absolute; right: 0">'+
                 '<input type="button" value="Edit" @click="edit" />'+
             '</span>'+
             '</div>',
@@ -76,7 +76,7 @@ Vue.component('groups-list', {
         group: null
     }
   },
-  template: '<div>'+
+  template: '<div style="position: relative; width: 300px;">'+
                 '<group-form :groups="groups" :groupAttr="group" />' +
                 '<group-row v-for="group in groups" :key="group.id" :group="group" :editGroup="editGroup" />'+
             '</div>',
