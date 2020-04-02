@@ -12,6 +12,7 @@ import java.util.Map;
 @RequestMapping("group")
 public class GroupController {
 
+    //create fake data
     private static List<Map<String, String>> groups = new ArrayList<Map<String, String>>() {{
         add(new HashMap<String, String>() {{
             put("id", "1");
