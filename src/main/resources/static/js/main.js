@@ -51,7 +51,6 @@ Vue.component('group-form', {
     }
   }
 });
-
 Vue.component('group-row', {
   props: ['group', 'editGroup', 'groups'],
   template: '<div><i>({{group.id}})</i>{{group.name}}'+
@@ -73,7 +72,6 @@ Vue.component('group-row', {
     }
   }
 });
-
 Vue.component('groups-list', {
   props: ['groups'],
   data: function() {
