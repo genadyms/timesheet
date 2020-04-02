@@ -42,6 +42,10 @@ public class GroupController {
             put("id", "7");
             put("name", "coworkers");
         }});
+        add(new HashMap<String, String>() {{
+            put("id", "8");
+            put("name", "friends");
+        }});
     }};
 
     private static int counter = groups.size();
