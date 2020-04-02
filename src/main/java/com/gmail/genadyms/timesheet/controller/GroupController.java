@@ -32,7 +32,7 @@ public class GroupController {
         }});
         add(new HashMap<String, String>() {{
             put("id", "5");
-            put("name", "friend");
+            put("name", "friends");
         }});
         add(new HashMap<String, String>() {{
             put("id", "6");
@@ -44,7 +44,7 @@ public class GroupController {
         }});
         add(new HashMap<String, String>() {{
             put("id", "8");
-            put("name", "friends");
+            put("name", "neighbors");
         }});
     }};
 
