@@ -39,7 +39,7 @@ public class GroupController {
 
     @GetMapping
     public List<Map<String, String>> index() {
-        return groups; 
+        return groups;
     }
 
     @GetMapping("{id}")
@@ -66,7 +66,6 @@ public class GroupController {
         groupById.put("id", id);
         return groupById;
     }
-
 
     @DeleteMapping("{id}")
     public void delete(@PathVariable String id) {
