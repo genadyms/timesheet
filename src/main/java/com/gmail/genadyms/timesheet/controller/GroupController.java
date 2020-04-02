@@ -33,6 +33,14 @@ public class GroupController {
             put("id", "5");
             put("name", "friend");
         }});
+        add(new HashMap<String, String>() {{
+            put("id", "6");
+            put("name", "actors");
+        }});
+        add(new HashMap<String, String>() {{
+            put("id", "7");
+            put("name", "coworkers");
+        }});
     }};
 
     private static int counter = groups.size();
