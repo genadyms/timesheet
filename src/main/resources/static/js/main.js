@@ -25,8 +25,8 @@ Vue.component('group-form', {
   },
   template:
     '<div>'+
-        '<input type="text" placeholder="Create new group" v-model="name" />' +
-        '<input type="button" value="Save" @click="save" />' +
+        '<input type="text" placeholder="Create new user group" v-model="name" />' +
+        '<input type="button" value="Save!" @click="save" />' +
      '</div>',
   methods: {
     save: function() {
